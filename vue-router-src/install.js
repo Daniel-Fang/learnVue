@@ -8,8 +8,8 @@ export function install (Vue) {
   
   /* 判断是否已安装过 */
   if (install.installed && _Vue === Vue) return
+  
   install.installed = true
-
   /* 保存Vue实例 */
   _Vue = Vue
 
@@ -30,7 +30,7 @@ export function install (Vue) {
     beforeCreate () {
       if (isDef(this.$options.router)) {
         /* 在option上面存在router则代表是根组件 */
-        /* 保存跟组件vm */
+        /* 保存根组件vm */
         this._routerRoot = this
         /* 保存router */
         this._router = this.$options.router

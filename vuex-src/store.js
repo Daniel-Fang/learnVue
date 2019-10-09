@@ -513,7 +513,7 @@ function registerGetter (store, type, rawGetter, local) {
   }
 }
 
-/* 使能严格模式 */
+/* 启动严格模式 */
 function enableStrictMode (store) {
   store._vm.$watch(function () { return this._data.$$state }, () => {
     if (process.env.NODE_ENV !== 'production') {
@@ -529,6 +529,7 @@ function getNestedState (state, path) {
     : state
 }
 
+// 处理参数为 Object形式，将对象都作为载荷传给 mutation 函数
 function unifyObjectStyle (type, payload, options) {
   if (isObject(type) && type.type) {
     options = payload

@@ -92,6 +92,7 @@ function addRouteRecord (
     // Warn if route is named, does not redirect and has a default child route.
     // If users navigate to this route by name, the default child will
     // not be rendered (GH Issue #629)
+    // 当route是命名的，并且无重定向并且有一个默认的子路由，如果经由name导航的话，默认情况下只会渲染父组件，子组件不会渲染
     if (process.env.NODE_ENV !== 'production') {
       if (route.name && !route.redirect && route.children.some(child => /^\/?$/.test(child.path))) {
         warn(
@@ -133,15 +134,17 @@ function addRouteRecord (
     })
   }
 
+  // 生成根据path 来对应的路由记录
   if (!pathMap[record.path]) {
     pathList.push(record.path)
     pathMap[record.path] = record
   }
-
+  // 生成根据name 来对应的路由记录
+  // 如果是具名路由，检查是否重复
   if (name) {
-    if (!nameMap[name]) {
+    if (!nameMap[name]) {// 未重复，则添加
       nameMap[name] = record
-    } else if (process.env.NODE_ENV !== 'production' && !matchAs) {
+    } else if (process.env.NODE_ENV !== 'production' && !matchAs) { //重复，则警告
       warn(
         false,
         `Duplicate named routes definition: ` +
