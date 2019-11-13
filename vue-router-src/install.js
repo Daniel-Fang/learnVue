@@ -29,7 +29,7 @@ export function install (Vue) {
     /* boforeCreate钩子 */
     beforeCreate () {
       if (isDef(this.$options.router)) {
-        /* 在option上面存在router则代表是根组件 */
+        /* 在options上面存在router则代表是根组件 */
         /* 保存根组件vm */
         this._routerRoot = this
         /* 保存router */

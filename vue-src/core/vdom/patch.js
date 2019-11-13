@@ -63,6 +63,7 @@ function sameInputType (a, b) {
   return typeA === typeB
 }
 
+
 /*
   生成一个key与旧VNode的key对应的哈希表
   比如childre是这样的 [{xx: xx, key: 'key0'}, {xx: xx, key: 'key1'}, {xx: xx, key: 'key2'}]  beginIdx = 0   endIdx = 2  

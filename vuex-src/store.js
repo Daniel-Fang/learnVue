@@ -254,7 +254,7 @@ export class Store {
   }
 }
 
-/* 重制store */
+/* 重置store */
 function resetStore (store, hot) {
   store._actions = Object.create(null)
   store._mutations = Object.create(null)
@@ -290,7 +290,7 @@ function resetStoreVM (store, state, hot) {
   // use a Vue instance to store the state tree
   // suppress warnings just in case the user has added
   // some funky global mixins
-  const silent = Vue.config.silent
+  const silent = Vue.config.silent // 警告相关 
   /* Vue.config.silent暂时设置为true的目的是在new一个Vue实例的过程中不会报出一切警告 */
   Vue.config.silent = true
   /*  这里new了一个Vue对象，运用Vue内部的响应式实现注册state以及computed*/

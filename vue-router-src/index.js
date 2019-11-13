@@ -34,9 +34,9 @@ export default class VueRouter {
   afterHooks: Array<?AfterNavigationHook>;
 
   constructor (options: RouterOptions = {}) {
-    this.app = null
+    this.app = null// 根 vue实例
     /* 保存vm实例 */
-    this.apps = []
+    this.apps = [] // 保存 router 属性中的 Vue 实例
     this.options = options
     this.beforeHooks = []
     this.resolveHooks = []

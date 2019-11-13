@@ -14,7 +14,7 @@ export function initUse (Vue: GlobalAPI) {
     // additional parameters
     const args = toArray(arguments, 1)
     /*a*/
-    args.unshift(this)
+    args.unshift(this) // 保证vue 实例是第一个参数
     if (typeof plugin.install === 'function') {
       /*install执行插件安装*/
       plugin.install.apply(plugin, args)
