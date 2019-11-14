@@ -52,7 +52,7 @@ export default class Watcher {
     /*_watchers存放订阅者实例*/
     vm._watchers.push(this)
     // options
-    if (options) {
+    if (options) {// !! 为转换为 boolean
       this.deep = !!options.deep
       this.user = !!options.user
       this.lazy = !!options.lazy

@@ -72,7 +72,7 @@ export class Observer {
    * value type is Object.
    */
    /*
-      遍历每一个对象并且在它们上面绑定getter与setter。这个方法只有在value的类型是对象的时候才能被调用
+      遍历对象的每个属性并且在它们上面绑定getter与setter。这个方法只有在value的类型是对象的时候被调用
    */
   walk (obj: Object) {
     const keys = Object.keys(obj)
